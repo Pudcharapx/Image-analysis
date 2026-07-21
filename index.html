@@ -6,37 +6,39 @@
   <title>Image Analysis Lab</title>
   <style>
     :root {
-      --glass-bg: rgba(255, 255, 255, 0.25);
-      --glass-border: rgba(255, 255, 255, 0.4);
-      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-      --primary: #2a52be;
-      --primary-hover: #1e3a8a;
-      --text: #1e293b;
+      /* Professional Light Mode */
+      --glass-bg: rgba(255, 255, 255, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --glass-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.05), 0 0 1px rgba(15, 23, 42, 0.08);
+      --primary: #334155;
+      --primary-hover: #0f172a;
+      --text: #334155;
       --text-header: #0f172a;
-      --muted: #475569;
-      --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-      --orb1: rgba(255, 182, 193, 0.6);
-      --orb2: rgba(135, 206, 250, 0.6);
-      --header-bg: rgba(255, 255, 255, 0.15);
-      --btn-bg: rgba(42, 82, 190, 0.85);
-      --colab-bg: rgba(249, 171, 0, 0.85);
-      --colab-hover: rgba(220, 150, 0, 0.95);
+      --muted: #64748b;
+      --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      --orb1: rgba(148, 163, 184, 0.2);
+      --orb2: rgba(56, 189, 248, 0.15);
+      --header-bg: rgba(255, 255, 255, 0.4);
+      --btn-bg: #334155;
+      --colab-bg: #f59e0b;
+      --colab-hover: #d97706;
     }
     
     body.dark-mode {
-      --glass-bg: rgba(15, 23, 42, 0.5);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-      --primary: #60a5fa;
-      --primary-hover: #93c5fd;
-      --text: #f1f5f9;
-      --text-header: #ffffff;
-      --muted: #cbd5e1;
-      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-      --orb1: rgba(124, 58, 237, 0.5);
-      --orb2: rgba(14, 165, 233, 0.5);
-      --header-bg: rgba(15, 23, 42, 0.4);
-      --btn-bg: rgba(96, 165, 250, 0.2);
+      /* Professional Dark Mode */
+      --glass-bg: rgba(30, 41, 59, 0.45);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      --primary: #94a3b8;
+      --primary-hover: #e2e8f0;
+      --text: #cbd5e1;
+      --text-header: #f8fafc;
+      --muted: #94a3b8;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+      --orb1: rgba(99, 102, 241, 0.15);
+      --orb2: rgba(14, 165, 233, 0.1);
+      --header-bg: rgba(15, 23, 42, 0.6);
+      --btn-bg: rgba(51, 65, 85, 0.8);
     }
 
     * {
