@@ -12,16 +12,42 @@
       --primary: #2a52be;
       --primary-hover: #1e3a8a;
       --text: #1e293b;
+      --text-header: #0f172a;
       --muted: #475569;
+      --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+      --orb1: rgba(255, 182, 193, 0.6);
+      --orb2: rgba(135, 206, 250, 0.6);
+      --header-bg: rgba(255, 255, 255, 0.15);
+      --btn-bg: rgba(42, 82, 190, 0.85);
+      --colab-bg: rgba(249, 171, 0, 0.85);
+      --colab-hover: rgba(220, 150, 0, 0.95);
     }
+    
+    body.dark-mode {
+      --glass-bg: rgba(15, 23, 42, 0.5);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+      --primary: #60a5fa;
+      --primary-hover: #93c5fd;
+      --text: #f1f5f9;
+      --text-header: #ffffff;
+      --muted: #cbd5e1;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      --orb1: rgba(124, 58, 237, 0.5);
+      --orb2: rgba(14, 165, 233, 0.5);
+      --header-bg: rgba(15, 23, 42, 0.4);
+      --btn-bg: rgba(96, 165, 250, 0.2);
+    }
+
     * {
       box-sizing: border-box;
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
     }
     body {
       margin: 0;
       padding: 0;
       font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+      background: var(--bg-gradient);
       background-attachment: fixed;
       color: var(--text);
       min-height: 100vh;
@@ -36,14 +62,15 @@
       z-index: -1;
       filter: blur(60px);
       animation: float 8s infinite alternate ease-in-out;
+      transition: background-color 0.4s ease;
     }
     body::before {
-      background: rgba(255, 182, 193, 0.6); /* Soft pink */
+      background: var(--orb1);
       top: 10%;
       left: 15%;
     }
     body::after {
-      background: rgba(135, 206, 250, 0.6); /* Soft blue */
+      background: var(--orb2);
       bottom: 20%;
       right: 15%;
       animation-delay: 2s;
@@ -53,7 +80,7 @@
       100% { transform: translateY(-30px) scale(1.1); }
     }
     header {
-      background: rgba(255, 255, 255, 0.15);
+      background: var(--header-bg);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--glass-border);
@@ -61,13 +88,31 @@
       padding: 56px 24px;
       text-align: center;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+      box-shadow: var(--glass-shadow);
+    }
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.2);
     }
     header h1 {
       margin: 0;
       font-size: clamp(2.4rem, 3vw, 3.4rem);
       letter-spacing: -0.04em;
-      color: #0f172a;
-      text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+      color: var(--text-header);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     header p {
       margin: 18px auto 0;
@@ -82,10 +127,6 @@
       padding: 0 20px 40px;
       position: relative;
       z-index: 1;
-    }
-    .grid {
-      display: grid;
-      gap: 24px;
     }
     .card {
       background: var(--glass-bg);
@@ -111,38 +152,11 @@
       color: var(--muted);
       margin: 0.8rem 0 0;
     }
-    .card-list {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0 0;
-      display: grid;
-      gap: 16px;
-    }
-    .card-list li {
-      display: grid;
-      gap: 8px;
-      border: 1px solid var(--glass-border);
-      border-radius: 18px;
-      padding: 18px 20px;
-      background: rgba(255, 255, 255, 0.4);
-      transition: background 0.2s ease;
-    }
-    .card-list li:hover {
-      background: rgba(255, 255, 255, 0.6);
-    }
-    .card-list a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .card-list a:hover {
-      text-decoration: underline;
-    }
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.2);
       color: var(--primary);
       border: 1px solid var(--glass-border);
       border-radius: 999px;
@@ -168,12 +182,12 @@
     }
     .lab-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
     }
     .lab-card h3 {
       margin: 0 0 12px;
       font-size: 1.25rem;
-      color: #0f172a;
+      color: var(--text-header);
     }
     .lab-card p {
       margin: 0;
@@ -183,7 +197,7 @@
     .lab-card small {
       display: block;
       margin-top: 16px;
-      color: #64748b;
+      color: var(--muted);
       font-size: 0.85rem;
     }
     .lab-actions {
@@ -198,23 +212,30 @@
       justify-content: center;
       text-decoration: none;
       color: #fff;
-      background: rgba(42, 82, 190, 0.85);
+      background: var(--btn-bg);
       backdrop-filter: blur(4px);
       padding: 12px 18px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: transform 0.2s ease, background 0.2s ease;
+      border: 1px solid var(--glass-border);
       font-weight: 600;
     }
     .lab-actions a:hover {
       transform: translateY(-2px);
-      background: rgba(30, 58, 138, 0.95);
+      filter: brightness(1.1);
     }
+    .lab-actions a.colab-btn {
+      background: var(--colab-bg);
+      color: #fff;
+    }
+    .lab-actions a.colab-btn:hover {
+      background: var(--colab-hover);
+    }
+    
     .hero-tagline {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.2);
       color: var(--primary);
       border: 1px solid var(--glass-border);
       font-weight: 500;
@@ -229,7 +250,7 @@
       padding: 28px 20px;
       color: var(--muted);
       font-size: 0.95rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--header-bg);
       backdrop-filter: blur(8px);
       border-top: 1px solid var(--glass-border);
     }
@@ -242,6 +263,7 @@
 </head>
 <body>
   <header>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
     <div class="hero-tagline">Image Analysis | บทเรียนปฏิบัติการภาพดิจิทัล</div>
     <h1>สรุปผลงาน Image Analysis</h1>
     <p>รวบรวมหน้าทดลองจาก Lab 1, Lab 2, Lab 3, Lab 4 พร้อมคำอธิบายและลิงก์ไปยังผลลัพธ์ที่สร้างจาก Jupyter Notebook</p>
@@ -253,32 +275,6 @@
       <div class="badge">GitHub Pages Friendly</div>
     </section>
 
-    <section class="card">
-      <h2>Lab Summary</h2>
-      <ul class="card-list">
-        <li>
-          <a href="lab1.html">Lab 1 Assignment</a>
-          <p>ศึกษาการแปลงภาพเป็น Grayscale ด้วยสมการคณิตศาสตร์แบบแมนนวล และการสกัดภาพเฉพาะส่วน (ROI)</p>
-        </li>
-        <li>
-          <a href="lab2.html">Lab 2 Assignment</a>
-          <p>ศึกษาการอ่านภาพสี, การเข้าถึงพิกเซล, การสร้าง ROI, การแยกช่องสี และการทำ Thresholding เบื้องต้น</p>
-        </li>
-        <li>
-          <a href="lab3.html">Lab 3 Assignment</a>
-          <p>ทดลอง Gamma Correction, วิเคราะห์ Histogram/CDF, ทำ Contrast Stretching และเทียบผล Histogram Equalization</p>
-        </li>
-        <li>
-          <a href="lab4.html">Lab 4 Assignment</a>
-          <p>ศึกษา noise filtration ด้วย Box Filter/Median Filter, เปรียบเทียบเวลา, ทำ Laplacian Sharpening และจัดการ overflow ของพิกเซล</p>
-        </li>
-        <li>
-          <a href="Lab4 discussion report.md">Lab 4 Discussion Report</a>
-          <p>บทสรุปเชิงวิเคราะห์สำหรับ Lab 4 พร้อมข้อสังเกตด้าน data science และ computer vision</p>
-        </li>
-      </ul>
-    </section>
-
     <section class="lab-grid">
       <div class="lab-card">
         <h3>Lab 1: Manual Grayscale & ROI</h3>
@@ -286,6 +282,7 @@
         <small>เน้นความเข้าใจโครงสร้างพิกเซล 3 มิติ และการเข้าถึงข้อมูลด้วย NumPy array slicing</small>
         <div class="lab-actions">
           <a href="lab1.html">ดู Lab 1</a>
+          <a href="https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/lab1_assignment.ipynb" target="_blank" class="colab-btn" title="แก้ไขลิงก์นี้เป็น GitHub ของคุณ">🚀 Open in Colab</a>
         </div>
       </div>
       <div class="lab-card">
@@ -294,6 +291,7 @@
         <small>เน้นการเข้าใจค่า BGR, การใช้ NumPy slicing และผลต่างระหว่าง image view กับ copy</small>
         <div class="lab-actions">
           <a href="lab2.html">ดู Lab 2</a>
+          <a href="https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/lab2_assignment%20(2).ipynb" target="_blank" class="colab-btn" title="แก้ไขลิงก์นี้เป็น GitHub ของคุณ">🚀 Open in Colab</a>
         </div>
       </div>
       <div class="lab-card">
@@ -302,6 +300,7 @@
         <small>เน้นการวิเคราะห์ distribution ของพิกเซล และเข้าใจความแตกต่างระหว่างการปรับแบบ linear กับ nonlinear</small>
         <div class="lab-actions">
           <a href="lab3.html">ดู Lab 3</a>
+          <a href="https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/LAB_3%20(1)%20(1).ipynb" target="_blank" class="colab-btn" title="แก้ไขลิงก์นี้เป็น GitHub ของคุณ">🚀 Open in Colab</a>
         </div>
       </div>
       <div class="lab-card">
@@ -310,14 +309,14 @@
         <small>รวมถึงการทำ Laplacian Sharpening และการป้องกัน overflow เมื่อลบ gradient จากภาพ</small>
         <div class="lab-actions">
           <a href="lab4.html">ดู Lab 4</a>
+          <a href="https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/lab4_assignment.ipynb" target="_blank" class="colab-btn" title="แก้ไขลิงก์นี้เป็น GitHub ของคุณ">🚀 Open in Colab</a>
         </div>
       </div>
       <div class="lab-card">
         <h3>รายงานสรุป Lab 4</h3>
         <p>มีบทสรุปเชิงวิเคราะห์ที่อธิบายทั้งความเร็วของ algorithm, การตอบสนองต่อ noise, และความสำคัญของการจำกัดพิกเซลก่อนแปลงเป็น uint8</p>
-        <small>ช่วยให้เข้าใจทั้งมุมมอง data science และ computer vision ในงานทดลองนี้</small>
         <div class="lab-actions">
-          <a href="Lab4 discussion report.md">อ่านรายงาน</a>
+          <a href="Lab4 discussion report.md" style="background: var(--primary);">อ่านรายงาน</a>
         </div>
       </div>
     </section>
@@ -325,5 +324,28 @@
   <footer>
     © 2026 Image Analysis Lab. สร้างด้วย GitHub Pages.
   </footer>
+  
+  <script>
+    const body = document.body;
+    const themeBtn = document.querySelector('.theme-toggle');
+    
+    // Check saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeBtn.textContent = '☀️ Light Mode';
+    }
+
+    function toggleTheme() {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        themeBtn.textContent = '☀️ Light Mode';
+      } else {
+        localStorage.setItem('theme', 'light');
+        themeBtn.textContent = '🌙 Dark Mode';
+      }
+    }
+  </script>
 </body>
 </html>

@@ -10,7 +10,16 @@ This project serves as a comprehensive portfolio of image processing techniques,
 
 The coursework is divided into the following core modules:
 
-### 1. Image Basics and Pixel Manipulation (Lab 2)
+### 1. Manual Grayscale and ROI (Lab 1)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/lab1_assignment.ipynb)
+- **Source:** `lab1_assignment.ipynb` / `lab1.html`
+- **Focus Areas:**
+  - Writing mathematical equations to convert RGB to Grayscale manually.
+  - Comparing manual arithmetic results with OpenCV's built-in functions.
+  - Slicing and cropping specific Region of Interest (ROI) from images.
+
+### 2. Image Basics and Pixel Manipulation (Lab 2)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/lab2_assignment%20(2).ipynb)
 - **Source:** `lab2_assignment (2).ipynb` / `lab2.html`
 - **Focus Areas:**
   - Reading, displaying, and converting color spaces (RGB/BGR to Grayscale).
@@ -18,14 +27,16 @@ The coursework is divided into the following core modules:
   - Region of Interest (ROI) extraction.
   - Fundamental image thresholding techniques for binary segmentation.
 
-### 2. Histograms and Contrast Adjustment (Lab 3)
+### 3. Histograms and Contrast Adjustment (Lab 3)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/LAB_3%20(1)%20(1).ipynb)
 - **Source:** `LAB_3 (1) (1).ipynb` / `lab3.html`
 - **Focus Areas:**
   - Non-linear spatial filtering via Gamma Correction.
   - Histogram computation and Cumulative Distribution Function (CDF) analysis.
   - Image enhancement through Contrast Stretching and Histogram Equalization.
 
-### 3. Noise Filtration and Image Sharpening (Lab 4)
+### 4. Noise Filtration and Image Sharpening (Lab 4)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/blob/main/lab4_assignment.ipynb)
 - **Source:** `lab4_assignment.ipynb` / `lab4.html`
 - **Discussion Report:** `Lab4 discussion report.md`
 - **Focus Areas:**
